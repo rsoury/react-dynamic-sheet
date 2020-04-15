@@ -1,5 +1,5 @@
 {
-	"name": "react-action-sheet",
+	"name": "react-dynamic-sheet",
 	"version": "0.1.0",
 	"description": "A react component for an animated mobile-first dynamic modal/bottom-sheet",
 	"private": false,
@@ -22,18 +22,19 @@
 		"sheet",
 		"modal"
 	],
-	"main": "./build/main.js",
-	"module": "./build/main.js",
-	"unpkg": "./build/main.js",
-	"jsdelivr": "./build/main.js",
+	"main": "lib/index.js",
+	"browser": "lib/index.umd.js",
+	"module": "lib/index.es.js",
 	"files": [
-		"build"
+		"lib"
 	],
 	"scripts": {
 		"start": "styleguidist server",
-		"build": "rescripts build",
+		"build": "rollup -c",
+		"prepublishOnly": "npm run clean && npm run build",
+		"postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
 		"test": "jest --colors --verbose --no-cache",
-		"clean": "rimraf ./build ./dist",
+		"clean": "rimraf ./lib",
 		"lint": "eslint -c ./.eslintrc.js \"src/**/*.{js,jsx,ts,tsx}\"",
 		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
 	},
@@ -91,6 +92,13 @@
 		"react-dom": "^16.8.6",
 		"react-styleguidist": "^11.0.5",
 		"rimraf": "^2.6.3",
+		"rollup": "^2.6.1",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-peer-deps-external": "^2.2.2",
+		"rollup-plugin-terser": "^5.3.0",
+		"rollup-plugin-uglify": "^6.0.4",
 		"to-string-loader": "^1.1.6",
 		"webpack": "^4.42.1"
 	},

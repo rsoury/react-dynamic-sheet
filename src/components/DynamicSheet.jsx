@@ -7,7 +7,7 @@ import { ChildrenProps } from "@/constants/common-prop-types";
 import Modal from "./Modal";
 import BottomSheet from "./BottomSheet";
 
-const ActionSheet = ({
+const DynamicSheet = ({
 	children,
 	isOpen,
 	onClose,
@@ -59,7 +59,7 @@ const ActionSheet = ({
 	);
 };
 
-ActionSheet.propTypes = {
+DynamicSheet.propTypes = {
 	children: ChildrenProps.isRequired,
 	isOpen: PropTypes.bool,
 	onClose: PropTypes.func,
@@ -67,11 +67,11 @@ ActionSheet.propTypes = {
 	confirmCloseMessage: PropTypes.string
 };
 
-ActionSheet.defaultProps = {
+DynamicSheet.defaultProps = {
 	isOpen: false,
 	onClose() {},
 	confirmClose: false,
 	confirmCloseMessage: "Are you sure you would like to abort the checkout?"
 };
 
-export default ActionSheet;
+export default DynamicSheet;

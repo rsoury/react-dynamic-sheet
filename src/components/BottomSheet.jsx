@@ -135,7 +135,7 @@ const Sheet = ({ children, onClose, onClick, ...props }) => {
 					>
 						<Background onClick={preventDefaultClick()} />
 						<Body ref={bodyRef}>
-							<slot name="action-sheet-content">{children}</slot>
+							<slot name="dynamic-sheet-content">{children}</slot>
 						</Body>
 					</MotionContainer>
 				</FixedBottom>

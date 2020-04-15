@@ -16,7 +16,7 @@ const MotionContainer = motion.custom(Container);
 const Modal = ({ children, isOpen, onClose, ...props }) => {
 	const [contentFixBreakpoint, setContentFixBreakpoint] = useState(500);
 
-	const onActionSheetResize = (width, height) => {
+	const onSheetResize = (width, height) => {
 		setContentFixBreakpoint(height);
 	};
 
@@ -49,9 +49,9 @@ const Modal = ({ children, isOpen, onClose, ...props }) => {
 					>
 						<Close onClick={onClose} />
 						<Body>
-							<slot name="action-sheet-content">{children}</slot>
+							<slot name="dynamic-sheet-content">{children}</slot>
 						</Body>
-						<ResizeDetector handleHeight onResize={onActionSheetResize} />
+						<ResizeDetector handleHeight onResize={onSheetResize} />
 					</MotionContainer>
 				</Overlay>
 			</Base>
