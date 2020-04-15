@@ -13,6 +13,9 @@ React Dynamic Sheet is react component to provide mobile users an app like, swip
 
 #### How to use it? 
 ```jsx
+import DynamicSheet from 'react-dynamic-sheet';
+import { EntryButton, Box } from './your-components/'
+
 const App = () => {
   const [checkout, setCheckout] = useState(false);
   const abort = () => setCheckout(false);
