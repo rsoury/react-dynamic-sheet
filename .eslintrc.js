@@ -6,7 +6,8 @@ module.exports = {
 		"plugin:prettier/recommended",
 		"prettier/react",
 		"plugin:import/errors",
-		"plugin:import/warnings"
+		"plugin:import/warnings",
+		"plugin:react-hooks/recommended"
 	],
 	parser: "babel-eslint",
 	plugins: ["babel", "react", "emotion"],

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import root from "react-shadow/emotion";
 import { Global, css } from "@emotion/core";
-import modernNormalize from "!to-string-loader!css-loader!modern-normalize"; // eslint-disable-line
+import modernNormalize from "modern-normalize"; // Imports as string as per rollup config
 
 const Encapsulate = ({ style, children, ...rest }) => {
 	return (

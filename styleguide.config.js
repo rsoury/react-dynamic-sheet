@@ -1,5 +1,4 @@
 const path = require("path");
-const { alias } = require("./config/shared");
 
 module.exports = {
 	// require: [path.resolve(__dirname, "./styleguide.setup.js")],
@@ -8,17 +7,21 @@ module.exports = {
 		path.resolve(__dirname, "./src/components/styles/**")
 	],
 	webpackConfig: {
-		resolve: {
-			alias
-		},
 		module: {
 			rules: [
 				{
 					test: /\.jsx?$/,
 					exclude: /node_modules/,
 					loader: "babel-loader"
+				},
+				{
+					test: /\.css?$/,
+					include: /modern-normalize/,
+					loader: ["to-string-loader", "css-loader"]
 				}
 			]
 		}
-	}
+	},
+	title: "React Dynamic Sheet Library",
+	styleguideDir: "docs"
 };

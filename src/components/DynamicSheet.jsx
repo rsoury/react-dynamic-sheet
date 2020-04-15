@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { isMobile } from "react-device-detect";
 
 import { ChildrenProps } from "@/constants/common-prop-types";
 
@@ -14,6 +13,8 @@ const DynamicSheet = ({
 	confirmClose,
 	confirmCloseMessage
 }) => {
+	const isMobile = window.innerWidth < 450;
+
 	const abort = () => {
 		if (confirmClose) {
 			const confirm = window.confirm(confirmCloseMessage); // eslint-disable-line

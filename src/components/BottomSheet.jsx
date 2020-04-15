@@ -105,7 +105,7 @@ const Sheet = ({ children, onClose, onClick, ...props }) => {
 		} else {
 			setMounted(true);
 		}
-	}, [mounted]);
+	}, [controls, mounted]);
 
 	return (
 		<Base>
