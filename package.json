@@ -30,6 +30,7 @@
 	],
 	"scripts": {
 		"start": "styleguidist server",
+		"docs": "styleguidist build && mv ./styleguide ./docs",
 		"build": "rollup -c",
 		"prepublishOnly": "npm run clean && npm run build",
 		"postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
