@@ -8,10 +8,10 @@ https://rsoury.github.io/react-dynamic-sheet/
 
 React Dynamic Sheet is react component to provide mobile users an app like, swipeable Bottom Sheet and desktop users a Modal Dialog. 
 
-What does it look like?
+#### What does it look like?
 ![Demonstration of Sheet on Mobile](https://media.giphy.com/media/kcUcYwklHAE4BEdo43/giphy.gif)
 
-How to use it?
+#### How to use it? 
 ```jsx
 const App = () => {
   const [checkout, setCheckout] = useState(false);
