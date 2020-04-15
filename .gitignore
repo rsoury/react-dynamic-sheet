@@ -11,6 +11,8 @@
 # production
 /build
 /build*
+/lib*
+/lib*
 /dist
 /dist*
 /tmp
