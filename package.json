@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/rsoury/react-action-sheet.git"
+		"url": "https://github.com/rsoury/react-dynamic-sheet.git"
 	},
 	"publishConfig": {
 		"access": "public"
