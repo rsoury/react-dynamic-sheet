@@ -43,12 +43,9 @@ const plugins = [
 	resolve({
 		browser: true,
 		extensions,
-		preferBuiltins: false,
-		dedupe: ["react", "react-dom"]
+		preferBuiltins: false
 	}),
-	commonjs({
-		include: /node_modules/
-	}),
+	commonjs(),
 	filesize(),
 	string({
 		include: "modern-normalize"
@@ -59,77 +56,68 @@ const plugins = [
 export default [
 	// CommonJS
 	{
-		input,
 		output: {
 			file: pkg.main,
 			format: "cjs"
 		},
-		plugins,
-		onwarn: discardWarning
+		plugins
 	},
 	{
-		input,
 		output: {
 			file: minifyExtension(pkg.main),
 			format: "cjs"
 		},
-		plugins: [...plugins, uglify()],
-		onwarn: discardWarning
+		plugins: [...plugins, uglify()]
 	},
 
 	// UMD
 	{
-		input,
 		output: {
 			file: pkg.browser,
 			format: "umd",
 			name: "reactDynamicSheet",
 			globals: {
 				react: "React",
-				"react-dom": "ReactDOM",
 				"@emotion/styled": "styled",
 				"@emotion/core": "core"
 			}
 		},
-		plugins,
-		onwarn: discardWarning
+		plugins
 	},
 	{
-		input,
 		output: {
 			file: minifyExtension(pkg.browser),
 			format: "umd",
 			name: "reactDynamicSheet",
 			globals: {
 				react: "React",
-				"react-dom": "ReactDOM",
 				"@emotion/styled": "styled",
 				"@emotion/core": "core"
 			}
 		},
-		plugins: [...plugins, terser()],
-		onwarn: discardWarning
+		plugins: [...plugins, terser()]
 	},
 
 	// ES
 	{
-		input,
 		output: {
 			file: pkg.module,
 			format: "es",
 			exports: "named"
 		},
-		plugins,
-		onwarn: discardWarning
+		plugins
 	},
 	{
-		input,
 		output: {
 			file: minifyExtension(pkg.module),
 			format: "es",
 			exports: "named"
 		},
-		plugins: [...plugins, terser()],
-		onwarn: discardWarning
+		plugins: [...plugins, terser()]
 	}
-];
+].map(conf => ({
+	input,
+	onwarn: discardWarning,
+	treeshake: true,
+	...conf
+}));
